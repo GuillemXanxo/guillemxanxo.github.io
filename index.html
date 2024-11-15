@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Image Navigation</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- First Horizontal Container First Image -->
+      <section
+        class="hero"
+        data-vertical-index="0"
+        data-horizontal-index="0"
+        style="background-image: url('assets/a.jpeg')"
+      >
+        <div class="arrow down">
+          <img src="assets/a-down.png" alt="Down Arrow" />
+        </div>
+        <div class="arrow right">
+          <img src="assets/a-right.png" alt="Right Arrow" />
+        </div>
+        <div class="label">Projecte A</div>
+      </section>
+      <!-- First Horizontal Container Second Image -->
+      <section
+        class="hero"
+        data-vertical-index="0"
+        data-horizontal-index="1"
+        style="background-image: url('assets/aa.jpeg')"
+      >
+        <div class="arrow left">
+          <img src="assets/a-left.png" alt="Left Arrow" />
+        </div>
+        <div class="label">Projecte A</div>
+      </section>
+
+      <!-- Second Horizontal Container First Image -->
+      <section
+        class="hero"
+        data-vertical-index="1"
+        data-horizontal-index="0"
+        style="background-image: url('assets/b.jpeg')"
+      >
+        <div class="arrow up"><img src="assets/a-up.png" alt="Up Arrow" /></div>
+        <div class="label">Projecte B</div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
