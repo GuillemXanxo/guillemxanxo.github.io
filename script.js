@@ -1,8 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.hero');
   const container = document.querySelector('.container');
+  const menuButton = document.querySelector('.menu-button img'); // Select the image inside the menu button
+  const verticalMenu = document.querySelector('.vertical-menu');
   let currentVerticalIndex = 0;
   let currentHorizontalIndex = 0;
+
+  // Function to toggle menu visibility and button image
+  menuButton.addEventListener('click', () => {
+    const isOpen = verticalMenu.classList.toggle('open');
+
+    // Change menu button image based on menu state
+    menuButton.src = isOpen ? 'assets/close.svg' : 'assets/more.svg';
+  });
 
   // Function to show the correct section
   function showSection(verticalIndex, horizontalIndex) {
@@ -17,38 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       section.style.display = isCurrent ? 'block' : 'none';
     });
+    console.log(currentVerticalIndex," ", currentHorizontalIndex)
   }
-
-  // Scroll to the specified vertical section
-  function scrollToVerticalIndex(index) {
-    const targetSection = [...sections].find(
-      (section) =>
-        parseInt(section.dataset.verticalIndex, 10) === index &&
-        parseInt(section.dataset.horizontalIndex, 10) === 0 // Default to horizontalIndex=0
-    );
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-      currentVerticalIndex = index;
-      currentHorizontalIndex = 0; // Reset horizontal index when scrolling
-    }
-  }
-
-  // Handle scrolling motion
-  container.addEventListener('wheel', (event) => {
-    if (event.deltaY > 0) {
-      // Scroll Down
-      if (currentVerticalIndex < sections.length - 1) {
-        currentVerticalIndex++;
-        scrollToVerticalIndex(currentVerticalIndex);
-      }
-    } else if (event.deltaY < 0) {
-      // Scroll Up
-      if (currentVerticalIndex > 0) {
-        currentVerticalIndex--;
-        scrollToVerticalIndex(currentVerticalIndex);
-      }
-    }
-  });
 
   // Event listener for navigation arrows
   document.querySelectorAll('.arrow').forEach((arrow) => {
@@ -79,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial display
   showSection(currentVerticalIndex, currentHorizontalIndex);
 });
+
+
 
 
 

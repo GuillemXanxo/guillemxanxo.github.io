@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Helvetica Light";
+  src: url("assets/helvetica-light.woff") format("woff");
+  font-weight: 300; /* Light weight */
+  font-style: normal;
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -10,6 +17,9 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden; /* Prevent default scrolling */
+  font-family: "Helvetica Light", Arial, sans-serif;
+  font-weight: 300;
+  -webkit-text-size-adjust: 100%;
 }
 
 .container {
@@ -78,8 +88,6 @@ html {
   bottom: 20px;
   left: 20px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
   color: white;
   background-color: rgba(
     0,
@@ -88,5 +96,77 @@ html {
     0.5
   ); /* Semi-transparent background for readability */
   padding: 5px 10px;
-  border-radius: 5px;
+}
+
+/* Menu Button */
+.menu-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menu-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Vertical Menu */
+.vertical-menu {
+  position: fixed;
+  top: 0;
+  right: -20%; /* Hidden by default */
+  width: 20%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.vertical-menu.open {
+  right: 0; /* Show the menu */
+}
+
+.menu-item {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.menu-item p {
+  font-family: "Helvetica Light", Arial, sans-serif;
+  font-weight: 100;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 650px) {
+  .vertical-menu {
+    width: 100%; /* Full width */
+    right: -100%; /* Hidden by default */
+  }
+
+  .vertical-menu.open {
+    right: 0; /* Show the menu */
+  }
 }
