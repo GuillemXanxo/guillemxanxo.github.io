@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.container');
   const menuButton = document.querySelector('.menu-button img'); // Select the image inside the menu button
   const verticalMenu = document.querySelector('.vertical-menu');
-  const leftMenuButton = document.querySelector('.left-menu-button img');
+  const leftMenuButton = document.querySelector('.left-menu-button p');
   const leftVerticalMenu = document.querySelector('.left-vertical-menu');
   let currentVerticalIndex = 0;
   let currentHorizontalIndex = 0;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = leftVerticalMenu.classList.toggle('open');
 
     // Change menu button image based on menu state
-    leftMenuButton.src = isOpen ? 'assets/close.svg' : 'assets/more.svg';
+    //leftMenuButton.src = isOpen ? 'assets/close.svg' : 'assets/more.svg';
   });
 
   const left0 = document.querySelector(".left-menu-item-0");
