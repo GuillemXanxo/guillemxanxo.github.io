@@ -3,10 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.container');
   const menuButton = document.querySelector('.menu-button img'); // Select the image inside the menu button
   const verticalMenu = document.querySelector('.vertical-menu');
+  const leftMenuButton = document.querySelector('.left-menu-button img');
+  const leftVerticalMenu = document.querySelector('.left-vertical-menu');
   let currentVerticalIndex = 0;
   let currentHorizontalIndex = 0;
 
-  // Function to toggle menu visibility and button image
+  //RIGHT MENU
+  // Function to toggle right menu visibility and button image
   menuButton.addEventListener('click', () => {
     const isOpen = verticalMenu.classList.toggle('open');
 
@@ -14,6 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.src = isOpen ? 'assets/close.svg' : 'assets/more.svg';
   });
 
+  //LEFT MENU
+  // Function to toggle left menu visibility and button image
+  leftMenuButton.addEventListener('click', () => {
+    const isOpen = leftVerticalMenu.classList.toggle('open');
+
+    // Change menu button image based on menu state
+    leftMenuButton.src = isOpen ? 'assets/close.svg' : 'assets/more.svg';
+  });
+
+  const left0 = document.querySelector(".left-menu-item-0");
+  const left1 = document.querySelector(".left-menu-item-1");
+  const left2 = document.querySelector(".left-menu-item-2");
+
+  left0.addEventListener('click', () => showSection(0, 0));
+  left1.addEventListener('click', () => showSection(1, 0));
+  left2.addEventListener('click', () => showSection(2, 0));
+
+
+
+  //MAIN BODY PROJECTS
   // Function to show the correct section
   function showSection(verticalIndex, horizontalIndex) {
     sections.forEach((section) => {
